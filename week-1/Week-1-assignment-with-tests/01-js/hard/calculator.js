@@ -67,4 +67,49 @@ class Calculator {
   
 }
 
-module.exports = Calculator;
+
+
+
+
+
+
+
+//testing
+
+// Create a new instance of Calculator
+const calculator = new Calculator();
+
+// Test Case 1: Basic Arithmetic Operations
+calculator.add(5);
+console.log(calculator.getResult()); // Expected output: 5
+
+calculator.subtract(3);
+console.log(calculator.getResult()); // Expected output: 2
+
+calculator.multiply(4);
+console.log(calculator.getResult()); // Expected output: 8
+
+calculator.divide(2);
+console.log(calculator.getResult()); // Expected output: 4
+
+// Test Case 2: Clear Result
+calculator.clear();
+console.log(calculator.getResult()); // Expected output: 0
+
+// Test Case 3: Complex Expression Calculation
+calculator.calculate("10 + 2 * (6 - (4 + 1) / 2) + 7");
+console.log(calculator.getResult()); // Expected output: 24
+
+// Test Case 4: Division by Zero Error
+try {
+  calculator.divide(0);
+} catch (error) {
+  console.log(error.message); // Expected output: Cannot divide by zero
+}
+
+// Test Case 5: Invalid Expression Error
+try {
+  calculator.calculate("5 + abc");
+} catch (error) {
+  console.log(error.message); // Expected output: Invalid expression
+}
