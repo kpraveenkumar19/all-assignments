@@ -17,6 +17,54 @@
   - `npm run test-calculator`
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result=0;
+  }
+  add(number){
+    this.result+=parseFloat(number);
+  }
+  subtract(number){
+    this.result-=parseFloat(number);
+  }
+  multiply(number){
+    this.result*=parseFloat(number);
+  }
+  divide(number){
+   const divisor = parseFloat(number)
+    if(divisor==0){
+      throw new Error("Cannot divide by zero");
+    }
+    else{
+      this.result/=divisor;
+    }
+  }
+  clear(){
+    this.result=0;
+  }
+  getResult(){
+    return this.result;
+  }
+  calculate(expr){
+    const cleanExpr = expr.replace(/\s+/g,'');
+    const regexp = /^[\d+\-*/().]+$/g;
+    const validExp = regexp.test(cleanExpr);
+
+    if(!validExp){
+      throw new Error("invalid expression");
+    }
+    else{
+      try{
+        this.result = eval(cleanExpr);
+      }
+      catch(error){
+        throw new Error("Invalid Expression");
+      }
+    }
+    
+  }
+  
+  
+}
 
 module.exports = Calculator;
