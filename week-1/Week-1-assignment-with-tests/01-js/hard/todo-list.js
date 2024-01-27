@@ -12,7 +12,7 @@
 */
 
 class Todo {
- consrtuctor(){
+ constructor(){
    this.todos = [];
  }
   add(todo){
@@ -23,9 +23,33 @@ class Todo {
       this.todos.splice(index,1);
     }
     else{
-      
+      console.error("invalid index");
+    } 
+  }
+  update(index,todo){
+    if(index>=0 && index<this.todos.length){
+      this.todos.[index]=todo;
     }
+    else{
+      console.error("invalid index");
+    }
+  }
+
+  getAll(){
+    return this.todos;
+  }
+  get(index){
+    if(index>=0 && index<this.todos.length){
+      return this.todos[index];
+    }
+    else{
+      console.error("invalid index");
+      return null;
+    }
+  }
+  clear(){
+    this.todos = [];
   }
 }
 
-module.exports = Todo;
+
