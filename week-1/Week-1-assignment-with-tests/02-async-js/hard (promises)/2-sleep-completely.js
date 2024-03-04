@@ -4,5 +4,11 @@
  */
 
 function sleep (seconds) {
-
+  const start = Date.now();
+  while(true){
+    const current =  Date.now();
+    if(current-start>=seconds*1000){
+      break;
+    }
+  }
 }
